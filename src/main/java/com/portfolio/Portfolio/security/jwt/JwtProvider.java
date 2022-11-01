@@ -6,10 +6,7 @@
 package com.portfolio.Portfolio.security.jwt;
 
 import com.portfolio.Portfolio.security.entity.UsuarioMain;
-import com.sun.javafx.scene.traversal.Algorithm;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.io.Encoders;
-import io.jsonwebtoken.security.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,7 +14,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
-import javax.crypto.SecretKey;
 
 /**
  * Clase que genera el token y valida que este bien formado y no este expirado
