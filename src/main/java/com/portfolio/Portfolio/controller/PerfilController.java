@@ -19,7 +19,7 @@ public class PerfilController {
     @Autowired
     private IPerfilService perfilService;
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/perfil/get")
     public List<Perfil> getPerfil(){
         return perfilService.getPerfil();

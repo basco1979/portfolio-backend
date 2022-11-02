@@ -19,7 +19,7 @@ public class AcercaDeController {
     @Autowired
     private IAcercaDeService acercaDeService;
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/acercade/get")
     public List<AcercaDe> getAcercaDe(){
         return acercaDeService.getAcercaDe();
