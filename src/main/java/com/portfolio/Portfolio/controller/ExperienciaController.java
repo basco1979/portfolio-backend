@@ -20,7 +20,7 @@ public class ExperienciaController {
     @Autowired
     private IExperienciaService experienciaService;
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/experiencia/get")
     public List<Experiencia> getExperiencia(){
         return experienciaService.getExperiencia();

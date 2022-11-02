@@ -25,26 +25,26 @@ public class EducacionController {
     @Autowired
     ServiceFile serviceFile;
     
-    @CrossOrigin(origins = "http://localhost:4200")
+        @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/educacion/get")
     public List<Educacion> getEducacion(){
         return educacionService.getEducacion();
     }
    
     
-     @CrossOrigin(origins = "http://localhost:4200")
+         @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @PostMapping("/educacion/crear")
     public String createEducacion(@RequestBody Educacion educacion){
         educacionService.saveEducacion(educacion);
         return "Educacion fue creada correctamente";
     }
-     @CrossOrigin(origins = "http://localhost:4200")
+         @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @DeleteMapping("/educacion/borrar/{id}")
     public String deleteEducacion(@PathVariable Long id){
         educacionService.deleteEducacion(id);
         return "Educacion ha sido borrada exitosamente";
     }
-     @CrossOrigin(origins = "http://localhost:4200")
+         @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @PutMapping("/educacion/editar/{id}")
     public Educacion editEducacion (@PathVariable Long id, 
                                 @RequestParam ("img") String nuevaImg,

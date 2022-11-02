@@ -19,7 +19,7 @@ public class HabilidadController {
     @Autowired
     private IHabilidadService habilidadService;
 
-@CrossOrigin(origins = "http://localhost:4200")    
+    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")  
     @GetMapping("/habilidad/get")
     public List<Habilidad> getHabilidad(){
         return habilidadService.getHabilidad();

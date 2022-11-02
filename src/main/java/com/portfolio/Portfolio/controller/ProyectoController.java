@@ -20,7 +20,7 @@ public class ProyectoController {
     private IProyectoService proyectoService;
     
     
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/proyecto/get")
     public List<Proyecto> getProyecto(){
         return proyectoService.getProyecto();
