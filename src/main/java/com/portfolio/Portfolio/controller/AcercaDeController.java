@@ -37,7 +37,7 @@ public class AcercaDeController {
         return "AcercaDe ha sido borrada exitosamente";
     }
     @CrossOrigin(origins = "https://portfolio-38aa5.web.app")    
-    @PutMapping("/acercaDe/editar/{id}")
+    @PutMapping("/acercade/editar/{id}")
     public AcercaDe editAcercaDe (@PathVariable Long id, 
                                 @RequestParam ("descripcion") String nuevaDescripcion)
                                 {
