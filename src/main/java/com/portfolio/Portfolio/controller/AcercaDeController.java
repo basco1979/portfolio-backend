@@ -13,13 +13,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin(origins = "https://portfolio-38aa5.web.app")
 @RestController
 public class AcercaDeController {
     @Autowired
     private IAcercaDeService acercaDeService;
     
-    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
+
     @GetMapping("/acercade/get")
     public List<AcercaDe> getAcercaDe(){
         return acercaDeService.getAcercaDe();
@@ -36,7 +36,6 @@ public class AcercaDeController {
         acercaDeService.deleteAcercaDe(id);
         return "AcercaDe ha sido borrada exitosamente";
     }
-    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")    
     @PutMapping("/acercade/editar/{id}")
     public AcercaDe editAcercaDe (@PathVariable Long id, 
                                 @RequestParam ("descripcion") String nuevaDescripcion)

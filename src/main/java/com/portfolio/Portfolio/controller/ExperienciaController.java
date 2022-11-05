@@ -14,13 +14,12 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
+@CrossOrigin(origins = "https://portfolio-38aa5.web.app")
 @RestController
 public class ExperienciaController {
     @Autowired
     private IExperienciaService experienciaService;
     
-    @CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/experiencia/get")
     public List<Experiencia> getExperiencia(){
         return experienciaService.getExperiencia();
