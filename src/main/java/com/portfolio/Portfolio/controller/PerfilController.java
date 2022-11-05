@@ -36,19 +36,34 @@ public class PerfilController {
         return "Perfil ha sido borrado exitosamente";
     }
     
-    @PutMapping("/perfil/editar/{id}")
-    public Perfil editPerfil (@PathVariable Long id, 
-                                @RequestParam ("imgBanner") String nuevaImgBanner,
-                                @RequestParam ("imgPerfil") String nuevaImgPerfil,
+    @PutMapping("/perfil/editarFotoPerfil/{id}")
+    public Perfil editFotoPerfil (@PathVariable Long id, 
+                                @RequestParam ("imgPerfil") String nuevaImgPerfil)
+                                {
+    Perfil perfil = perfilService.findPerfil(id);
+    perfil.setImgPerfil(nuevaImgPerfil);
+    perfilService.savePerfil(perfil);
+    return perfil;
+}
+
+    @PutMapping("/perfil/editarBanner/{id}")
+    public Perfil editBanner (@PathVariable Long id, 
+                                @RequestParam ("imgBanner") String nuevaImgBanner)
+                                {
+    Perfil perfil = perfilService.findPerfil(id);
+    perfil.setImgBanner(nuevaImgBanner);
+    perfilService.savePerfil(perfil);
+    return perfil;
+}
+
+    @PutMapping("/perfil/editarTexto/{id}")
+    public Perfil editTexto (@PathVariable Long id, 
                                 @RequestParam ("nombre") String nuevoNombre,
                                 @RequestParam ("descripcion") String nuevaDescripcion)
                                 {
     Perfil perfil = perfilService.findPerfil(id);
-    perfil.setImgBanner(nuevaImgBanner);
-    perfil.setImgPerfil(nuevaImgPerfil);
     perfil.setNombre(nuevoNombre);
     perfil.setDescripcion(nuevaDescripcion);
-    
     perfilService.savePerfil(perfil);
     return perfil;
 }
