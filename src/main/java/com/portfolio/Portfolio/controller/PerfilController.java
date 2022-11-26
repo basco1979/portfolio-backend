@@ -35,7 +35,7 @@ public class PerfilController {
         perfilService.deletePerfil(id);
         return "Perfil ha sido borrado exitosamente";
     }
-    
+@CrossOrigin(origins = "https://portfolio-38aa5.web.app")    
     @PutMapping("/perfil/editarFotoPerfil/{id}")
     public Perfil editFotoPerfil (@PathVariable Long id, 
                                 @RequestParam ("imgPerfil") String nuevaImgPerfil)
