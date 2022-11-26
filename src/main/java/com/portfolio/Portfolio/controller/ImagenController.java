@@ -22,11 +22,8 @@ public class ImagenController {
         @Autowired
     ImagenRepository imageRepository;
 
-@CrossOrigin(origins = "https://portfolio-38aa5.web.app")
-    @GetMapping("/imagen/get")
-    public List<Imagen> getImagen(){
-        return imagenService.getImagen()[0];
-    }
+
+   
 @CrossOrigin(origins = "https://portfolio-38aa5.web.app")    
     @PostMapping("/imagen/crear")
   public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
@@ -51,10 +48,11 @@ public class ImagenController {
     imagenService.saveImagen(imagen);
     return imagen;
 }
+@CrossOrigin(origins = "https://portfolio-38aa5.web.app")
      @GetMapping(path = {"/imagen/{name}"})
     public ResponseEntity<byte[]> getImage(@PathVariable("name") String name) throws IOException {
 
-        final Optional<Image> dbImage = imageRepository.findByName(name);
+        final Optional<Imagen> dbImage = imageRepository.findByName(name);
 
         return ResponseEntity
                 .ok()
