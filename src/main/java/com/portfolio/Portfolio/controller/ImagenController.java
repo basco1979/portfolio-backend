@@ -22,9 +22,10 @@ public class ImagenController {
         @Autowired
     ImagenRepository imageRepository;
 
+@CrossOrigin(origins = "https://portfolio-38aa5.web.app")
     @GetMapping("/imagen/get")
     public List<Imagen> getImagen(){
-        return imagenService.getImagen();
+        return imagenService.getImagen()[0];
     }
 @CrossOrigin(origins = "https://portfolio-38aa5.web.app")    
     @PostMapping("/imagen/crear")
@@ -36,7 +37,7 @@ public class ImagenController {
                 .type(file.getContentType())
                 .image(ImageUtility.compressImage(file.getBytes())).build());
         return ResponseEntity.status(HttpStatus.OK)
-                .body(new ImageUploadResponse("Image uploaded successfully: " +
+                .body(new ImageUploadResponse("Imagen cargada: " +
                         file.getOriginalFilename()));
     }
     
@@ -50,5 +51,14 @@ public class ImagenController {
     imagenService.saveImagen(imagen);
     return imagen;
 }
-    
+     @GetMapping(path = {"/imagen/{name}"})
+    public ResponseEntity<byte[]> getImage(@PathVariable("name") String name) throws IOException {
+
+        final Optional<Image> dbImage = imageRepository.findByName(name);
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.valueOf(dbImage.get().getType()))
+                .body(ImageUtility.decompressImage(dbImage.get().getImage()));
+    }
 }
